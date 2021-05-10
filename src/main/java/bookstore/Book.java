@@ -1,6 +1,6 @@
 package bookstore;
 
-import bank.Customer;
+import bookstore.Book;
 
 public class Book extends Item {
     String firstName;
@@ -13,14 +13,16 @@ public class Book extends Item {
         this.lastName = lastName;
     }
 
-    public getBookPriceByArticle(int article){
+    public Book getBookPriceByArticle(int article){
         for (int i = 0; i < booksList.size(); i++) {
             Book b = this.booksList.get(i);
             if (article==b.getId()){
                 int p = bookList[i].price;
+
                 return  p;
             }
         }
+
         return  null;
     }
 

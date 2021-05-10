@@ -32,8 +32,6 @@ public class App {
 
 
 
-       // Book.bookSales(1, 001);
-
 
     }
 }

@@ -51,9 +51,9 @@ public class BookStore {
     }
 
 
-    public void bookSales (int article){
+    public void bookSales (int article, int salesManagerNumber){
 
-      
+
 
     }
 
