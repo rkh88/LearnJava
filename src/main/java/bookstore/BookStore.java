@@ -21,8 +21,8 @@ public class BookStore {
         this.director = director;
     }
 
-    public void addDepartment(String departmentName) {
-        Department department = new Department(departmentName);
+    public void addDepartment(String department) {
+        Department dep = new Department(department);
 
 
     }
@@ -52,10 +52,10 @@ public class BookStore {
 
 
     public void bookSales (int article, int salesManagerNumber){
-        Book b = Book.getBookByArticle(article);
+        Item i = Item.getItemByArticle(article);
         SalesManager m = SalesManager.getSalesManagerByNumber (salesManagerNumber);
-        int p = b.price;
-        b.setSold(true);
+        int p = i.price;
+        i.setSold(true);
         m.setSumOfSales(p);
 
 
