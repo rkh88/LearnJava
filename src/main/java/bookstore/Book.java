@@ -13,10 +13,14 @@ public class Book extends Item {
         this.lastName = lastName;
     }
 
-    public Book getBookPriceByArticle(int article){
+    public int getArticle() {
+        return article;
+    }
+
+    public int getBookPriceByArticle(int article){
         for (int i = 0; i < booksList.size(); i++) {
             Book b = this.booksList.get(i);
-            if (article==b.getId()){
+            if (article==b.getArticle()){
                 int p = bookList[i].price;
 
                 return  p;

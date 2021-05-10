@@ -1,6 +1,6 @@
 package bookstore;
 
-import bank.Customer;
+
 import myutils.MyArrayList;
 
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ public class BookStore {
 
     String bookStoreName;
     Director director;
-    private SalesManagersList<SalesManager> salesManagersList = new salesManagersList();
-    private AuthorsList<Author> authorsList = new authorsList();
-    private ItemsList<Item> itemsList = new itemsList<>();
-    private BooksList<Book> booksList = new booksList();
-    private JournalsList<Journal> journalsList = new journalsList();
+    private MyArrayList<SalesManager> salesManagersList = new salesManagersList();
+    private MyArrayList<Author> authorsList = new authorsList();
+    private MyArrayList<Item> itemsList = new itemsList<>();
+    private MyArrayList<Book> booksList = new booksList();
+    private MyArrayList<Journal> journalsList = new journalsList();
 
     public BookStore(String bookStoreName, Director director) {
         this.bookStoreName = bookStoreName;
