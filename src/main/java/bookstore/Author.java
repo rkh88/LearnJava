@@ -1,13 +1,9 @@
 package bookstore;
 
-public class Author {
-    String shortName;
-    String firstName;
-    String lastName;
+public class Author extends Person{
 
-    public Author(String shortName, String firstName, String lastName) {
-        this.shortName = shortName;
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public Author(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 }

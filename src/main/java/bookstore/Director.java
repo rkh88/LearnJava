@@ -1,12 +1,8 @@
 package bookstore;
 
-public class Director{
-
-    String firstName;
-    String lastName;
+public class Director extends Person{
 
     public Director(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(String firstName, String lastName);
     }
 }

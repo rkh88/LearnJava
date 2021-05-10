@@ -1,23 +1,29 @@
 package bookstore;
 
-public class Book {
-    String author;
-    String nameOfBook;
-    int article;
-    int price;
-    int shelfNumber;
-    String departmentOfLocation;
-    boolean sold;
+import bank.Customer;
 
-    public Book(String author, String nameOfBook, int article, int price, int shelfNumber, String departmentOfLocation, boolean sold) {
-        this.author = author;
-        this.nameOfBook = nameOfBook;
-        this.article = article;
-        this.price = price;
-        this.shelfNumber = shelfNumber;
-        this.departmentOfLocation = departmentOfLocation;
-        this.sold = sold;
+public class Book extends Item {
+    String firstName;
+    String lastName;
+    int article;
+
+    public Book(String name, int article, int price, int shelfNumber, String department, boolean sold, String firstName, String lastName) {
+        super(name, article, price, shelfNumber, department, sold);
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
+
+    public getBookPriceByArticle(int article){
+        for (int i = 0; i < booksList.size(); i++) {
+            Book b = this.booksList.get(i);
+            if (article==b.getId()){
+                int p = bookList[i].price;
+                return  p;
+            }
+        }
+        return  null;
+    }
+
 
 
 
