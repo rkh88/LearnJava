@@ -17,18 +17,19 @@ public class Book extends Item {
         return article;
     }
 
-    public int getBookPriceByArticle(int article){
+    public Book getBookByArticle(int article){
         for (int i = 0; i < booksList.size(); i++) {
             Book b = this.booksList.get(i);
             if (article==b.getArticle()){
-                int p = bookList[i].price;
 
-                return  p;
+                return  b;
             }
         }
 
         return  null;
     }
+
+
 
 
 

@@ -52,7 +52,11 @@ public class BookStore {
 
 
     public void bookSales (int article, int salesManagerNumber){
-
+        Book b = Book.getBookByArticle(article);
+        SalesManager m = SalesManager.getSalesManagerByNumber (salesManagerNumber);
+        int p = b.price;
+        b.setSold(true);
+        m.setSumOfSales(p);
 
 
     }

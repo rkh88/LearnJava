@@ -1,5 +1,7 @@
 package bookstore;
 
+import bank.Customer;
+
 public class SalesManager extends Person {
     int salesManagerNumber;
     String department;
@@ -12,12 +14,15 @@ public class SalesManager extends Person {
         this.sumOfSales = sumOfSales;
     }
 
-    public SalesManager getSumOfSalesBySalesManagerNumber (salesManagerNumber){
+    public int getSalesManagerNumber() {
+        return salesManagerNumber;
+    }
+
+    public SalesManager getSalesManagerByNumber (salesManagerNumber){
         for (int i = 0; i < salesManagersList.size(); i++) {
             SalesManager m = this.salesManagersList.get(i);
-            if (salesManagerNumber==m.getId()){
-                int sumOfSales = salesManagersList[i].sumOfSales;
-                return  sumOfSales;
+            if (salesManagerNumber==m.getSalesManagerNumber()){
+                return  m;
             }
         }
         return  null;
@@ -25,12 +30,9 @@ public class SalesManager extends Person {
 
     }
 
-    public void setSumOfSales(int sumOfSales) {
-        this.sumOfSales = sumOfSales;
+    public void setSumOfSales(int sum) {
+        this.sumOfSales = this.sumOfSales + sum;
     }
-
-    public void printSalesManagers(){
-    System.out.println(salesManagerNumber + " " + this.firstName + " " + this.lastName + " " + this.department);
 
 
 
