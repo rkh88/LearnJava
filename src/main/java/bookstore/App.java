@@ -30,7 +30,8 @@ public class App {
         bs1.addJournal("Vestnik Evropy", 005, 500, 002, "Dep 2", false);
         bs1.addJournal("Russkaya Zhizn", 006, 500, 002, "Dep 2", false);
 
-
+        bs1.printSalesManagers();
+        bs1.printBooks();
 
 
     }

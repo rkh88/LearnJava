@@ -18,7 +18,7 @@ public class SalesManager extends Person {
         return salesManagerNumber;
     }
 
-    public SalesManager getSalesManagerByNumber (salesManagerNumber){
+    public SalesManager getSalesManagerByNumber (int salesManagerNumber){
         for (int i = 0; i < salesManagersList.size(); i++) {
             SalesManager m = this.salesManagersList.get(i);
             if (salesManagerNumber==m.getSalesManagerNumber()){
@@ -37,7 +37,13 @@ public class SalesManager extends Person {
 
 
 
-}
 
 
-}
+
+    }
+
+
+
+
+
+
