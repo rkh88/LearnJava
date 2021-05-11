@@ -67,7 +67,8 @@ public class BookStore {
 
         for (int i = 0; i < salesManagersList.size(); i++) {
             SalesManager m = SalesManager.getSalesManagerByNumber(i);
-            System.out.println(m);
+            int n = m.getSalesManagerNumber;
+            System.out.println(n+" "+m.firstName+" " m.lastName);
         }
 
     }
@@ -78,6 +79,50 @@ public class BookStore {
             String n = Book.getBookNameByArticle(i);
             System.out.println(n);
         }
+    }
+
+    public void printJournals () {
+
+        for (int i = 0; i < journalsList.size()List.size(); i++) {
+            String n = Journal.getJournalNameByArticle(i);
+            System.out.println(n);
+        }
+    }
+
+
+    public void bestSalesManagerNumber (){
+        SalesManager m0 = SalesManager.getSalesManagerByNumber(0);
+        int bestSum = m0.getSumOfSales;
+        int iBest = 0;
+        for (int i = 1; i < salesManagersList.size(); i++) {
+
+            SalesManager m = SalesManager.getSalesManagerByNumber(i);
+            int sum = m.getSumOfSales;
+                if (sum>bestSum) {
+                    bestSum = sum;
+                    m0 = SalesManager.getSalesManagerByNumber(i);
+                }
+
+        }
+        int bestNum = m0.getSalesManagerNumber;
+        String fN = m0.getFirstName;
+        String lN = m0.getLastName;
+        System.out.println(bestNum + " " + fN + " " + lN);
+
+
+    }
+
+    public void averageSales () {
+        int sum = 0;
+        for (int i = 0; i < salesManagersList.size(); i++) {
+            SalesManager m = SalesManagers.getSalesManagerByNumber(i);
+            int sum1 = m.getSumOfSales;
+            sum = sum + sum1;
+        }
+        int avSum = sum/ salesManagersList.size();
+        System.out.println(avSum);
+
+
     }
 
 

@@ -1,6 +1,6 @@
 package bookstore;
 
-import bookstore.Book;
+import java.util.ArrayList;
 
 public class Book extends Item {
     String firstName;
@@ -33,8 +33,8 @@ public class Book extends Item {
         for (int i = 0; i < booksList.size(); i++) {
             Book b = getBookByArticle(i);
             if (article==b.getArticle()){
-                int a = this.article;
-                return  a;
+                String n = this.name;
+                return  n;
             }
         }
 

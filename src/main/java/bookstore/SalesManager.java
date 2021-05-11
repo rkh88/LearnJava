@@ -18,6 +18,8 @@ public class SalesManager extends Person {
         return salesManagerNumber;
     }
 
+
+
     public SalesManager getSalesManagerByNumber (int salesManagerNumber){
         for (int i = 0; i < salesManagersList.size(); i++) {
             SalesManager m = this.salesManagersList.get(i);
@@ -28,6 +30,11 @@ public class SalesManager extends Person {
         return  null;
 
 
+    }
+
+
+    public int getSumOfSales() {
+        return sumOfSales;
     }
 
     public void setSumOfSales(int sum) {

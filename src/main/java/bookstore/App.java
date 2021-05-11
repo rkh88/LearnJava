@@ -24,14 +24,22 @@ public class App {
         bs1.addAuthor("Nikolay", "Karamzin");
 
         bs1.addBook( "Lev", "Tolstoy", "Voskreseniye", 001, 500, 001, "Dep 1", false);
-        bs1.addBook( "Lev", "Tolstoy", "Voyna i mir", 002, 500, 001, "Dep 1", false);
-        bs1.addBook( "Lev", "Tolstoy", "Anna Karenina", 003, 500, 001, "Dep 1", false);
-        bs1.addJournal("Narodnaya Volya", 004, 500, 002, "Dep 2", false);
-        bs1.addJournal("Vestnik Evropy", 005, 500, 002, "Dep 2", false);
-        bs1.addJournal("Russkaya Zhizn", 006, 500, 002, "Dep 2", false);
+        bs1.addBook( "Lev", "Tolstoy", "Voyna i mir", 002, 600, 001, "Dep 1", false);
+        bs1.addBook( "Lev", "Tolstoy", "Anna Karenina", 003, 700, 001, "Dep 1", false);
+        bs1.addJournal("Narodnaya Volya", 004, 800, 002, "Dep 2", false);
+        bs1.addJournal("Vestnik Evropy", 005, 900, 002, "Dep 2", false);
+        bs1.addJournal("Russkaya Zhizn", 006, 1000, 002, "Dep 2", false);
 
         bs1.printSalesManagers();
         bs1.printBooks();
+
+        bs1.bookSales(001,001);
+        bs1.bookSales(002,002);
+        bs1.bookSales(003,003);
+
+        bs1.bestSalesManagerNumber();
+
+        bs1.averageSales();
 
 
     }
