@@ -32,6 +32,7 @@ public class App {
 
         bs1.printSalesManagers();
         bs1.printBooks();
+        bs1.printJournals();
 
         bs1.bookSales(001,001);
         bs1.bookSales(002,002);

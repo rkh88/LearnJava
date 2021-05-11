@@ -1,7 +1,5 @@
 package bookstore;
 
-import java.util.ArrayList;
-
 public class Book extends Item {
     String firstName;
     String lastName;
@@ -17,29 +15,7 @@ public class Book extends Item {
         return article;
     }
 
-    public Book getBookByArticle(int article){
-        for (int i = 0; i < booksList.size(); i++) {
-            Book b = this.booksList.get(i);
-            if (article==b.getArticle()){
 
-                return  b;
-            }
-        }
-
-        return  null;
-    }
-
-    public Book getBookNameByArticle(int article){
-        for (int i = 0; i < booksList.size(); i++) {
-            Book b = getBookByArticle(i);
-            if (article==b.getArticle()){
-                String n = this.name;
-                return  n;
-            }
-        }
-
-        return  null;
-    }
 
 
 

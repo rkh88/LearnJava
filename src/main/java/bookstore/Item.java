@@ -1,5 +1,4 @@
 package bookstore;
-import java.util.ArrayList;
 
 public class Item {
     String name;
@@ -26,14 +25,8 @@ public class Item {
     }
 
 
-    public Item getItemByArticle(int article) {
-        for (int i = 0; i < itemsList.size(); i++) {
-            Item i = this.itemsList.get(i);
-            if (article == i.getArticle()) {
-
-                return i;
-            }
-        }
+    public String getName() {
+        return name;
     }
 
     public int getArticle() {

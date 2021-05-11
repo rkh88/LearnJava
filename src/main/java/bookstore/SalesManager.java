@@ -1,7 +1,5 @@
 package bookstore;
 
-import bank.Customer;
-
 public class SalesManager extends Person {
     int salesManagerNumber;
     String department;
@@ -20,17 +18,7 @@ public class SalesManager extends Person {
 
 
 
-    public SalesManager getSalesManagerByNumber (int salesManagerNumber){
-        for (int i = 0; i < salesManagersList.size(); i++) {
-            SalesManager m = this.salesManagersList.get(i);
-            if (salesManagerNumber==m.getSalesManagerNumber()){
-                return  m;
-            }
-        }
-        return  null;
 
-
-    }
 
 
     public int getSumOfSales() {
