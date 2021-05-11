@@ -1,7 +1,8 @@
 package bank;
 
+import myutils.MyArrayList;
+
 import java.math.BigDecimal;
-import  myutils.MyArrayList;
 /**
  * Bank
  *
@@ -10,9 +11,8 @@ import  myutils.MyArrayList;
  *
  */
 public class Bank {
-
     String name;
-    String address;
+     String address;
     Director director;
     Employe [] employes = new Employe[5];
     private MyArrayList<Customer> customerList = new MyArrayList();

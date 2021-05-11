@@ -21,8 +21,17 @@ public class TickTacToeGame {
             int number = sc.nextInt() - 1;
             System.out.println(number + 1);
             if (desk.deskControl(number) == true) {
-                desk.changeDeskStateX(number);
+                desk.changeDeskState(number);
                 desk.printState();
+                if (desk.anybodyWonControl() == 0) {
+                    System.out.println("No winner");
+                } else {
+                    if (desk.anybodyWonControl() == 1) {
+                        System.out.println("X won");
+                    } else {
+                        System.out.println("O won");
+                    }
+                }
                 System.out.println("Change token");
             } else {
                 System.out.println("Space is not empty, enter another number");
@@ -32,14 +41,6 @@ public class TickTacToeGame {
         }
 
 
-        if (desk.anybodyWonControl() == 0) {
-            System.out.println("Nobody won");
-        } else {
-            if (desk.anybodyWonControl() == 1) {
-                System.out.println("X won");
-            } else {
-                System.out.println("O won");
-            }
-        }
+
     }
 }

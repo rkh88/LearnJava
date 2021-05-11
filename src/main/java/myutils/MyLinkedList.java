@@ -28,9 +28,8 @@ public class MyLinkedList<T> {
     }
 
 
-    private class Node{
+    private static class Node<T>{
         T data;
         Node next;
-
     }
 }
