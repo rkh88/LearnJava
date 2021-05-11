@@ -29,6 +29,18 @@ public class Book extends Item {
         return  null;
     }
 
+    public Book getBookNameByArticle(int article){
+        for (int i = 0; i < booksList.size(); i++) {
+            Book b = getBookByArticle(i);
+            if (article==b.getArticle()){
+                int a = this.article;
+                return  a;
+            }
+        }
+
+        return  null;
+    }
+
 
 
 

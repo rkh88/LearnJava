@@ -10,11 +10,11 @@ public class BookStore {
 
     String bookStoreName;
     Director director;
-    private MyArrayList<SalesManager> salesManagersList = new MyArrayList();
-    private MyArrayList<Author> authorsList = new MyArrayList();
-    private MyArrayList<Item> itemsList = new MyArrayList<>();
-    private MyArrayList<Book> booksList = new MyArrayList();
-    private MyArrayList<Journal> journalsList = new MyArrayList();
+    private ArrayList<SalesManager> salesManagersList = new ArrayList();
+    private ArrayList<Author> authorsList = new ArrayList();
+    private ArrayList<Item> itemsList = new ArrayList<>();
+    private ArrayList<Book> booksList = new ArrayList();
+    private ArrayList<Journal> journalsList = new ArrayList();
 
     public BookStore(String bookStoreName, Director director) {
         this.bookStoreName = bookStoreName;
@@ -61,11 +61,13 @@ public class BookStore {
 
     }
 
+
+
     public void printSalesManagers () {
 
         for (int i = 0; i < salesManagersList.size(); i++) {
-            SalesManager m = salesManagersList.get(i);
-            m.printInformation();
+            SalesManager m = SalesManager.getSalesManagerByNumber(i);
+            System.out.println(m);
         }
 
     }
@@ -73,8 +75,8 @@ public class BookStore {
     public void printBooks () {
 
         for (int i = 0; i < booksList.size(); i++) {
-            SalesManager b = booksList.get(i);
-            b.printInformation();
+            String n = Book.getBookNameByArticle(i);
+            System.out.println(n);
         }
     }
 
