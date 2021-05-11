@@ -1,9 +1,9 @@
 package bookstore;
 
 public class SalesManager extends Person {
-    int salesManagerNumber;
-    String department;
-    int sumOfSales;
+    private int salesManagerNumber;
+    private String department;
+    private int sumOfSales;
 
     public SalesManager(String firstName, String lastName, int salesManagerNumber, String department, int sumOfSales) {
         super(firstName, lastName);

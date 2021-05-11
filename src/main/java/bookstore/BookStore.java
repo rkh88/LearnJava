@@ -1,61 +1,67 @@
 package bookstore;
 
 
-import myutils.MyArrayList;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class BookStore {
 
     String bookStoreName;
     Director director;
-    private ArrayList<SalesManager> salesManagersList = new ArrayList();
-    private ArrayList<Author> authorsList = new ArrayList();
+    //private ArrayList<SalesManager> salesManager
+    private ArrayList<Person> salesManagersList = new ArrayList<>();
+    private ArrayList<Person> authorsList = new ArrayList();
     private ArrayList<Item> itemsList = new ArrayList<>();
-    private ArrayList<Book> booksList = new ArrayList();
-    private ArrayList<Journal> journalsList = new ArrayList();
+    private ArrayList<Item> booksList = new ArrayList();
+    private ArrayList<Item> journalsList = new ArrayList();
 
     public BookStore(String bookStoreName, Director director) {
         this.bookStoreName = bookStoreName;
         this.director = director;
     }
 
+
     public void addDepartment(String department) {
         Department dep = new Department(department);
-
-
     }
 
-    public void addSalesManager(String firstName, String lastName, int salesManagerNumber, String department, int sumOfSales) {
+    public void addSalesManager(String firstName, String lastName,
+                                int salesManagerNumber, String department, int sumOfSales) {
+
+
         SalesManager salesManager = new SalesManager(firstName, lastName, salesManagerNumber, department, sumOfSales);
-        salesManagersList.add(salesManager);
+       salesManagersList.add(salesManager);
     }
 
     public void addAuthor(String firstName, String lastName) {
 
-      Author author = new Author(firstName, lastName);
-      authorsList.add(author);
+        Author author = new Author(firstName, lastName);
+        authorsList.add(author);
 
     }
 
-    public void addBook(String firstName, String lastName, String name, int article, int price, int shelfNumber, String department, boolean sold) {
-      Book book = new Book(name, article, price, shelfNumber, department, sold, firstName, lastName);
-      booksList.add(book);
+    public void addBook(String firstName, String lastName,
+                        String name, int article, int price, int shelfNumber, String department, boolean sold) {
+
+        Book book = new Book(name, article, price, shelfNumber, department, sold, firstName, lastName);
+        booksList.add(book);
+        itemsList.add(book);
+
 
     }
 
     public void addJournal(String name, int article, int price, int shelfNumber, String department, boolean sold) {
-      Journal journal = new Journal(name, article, price, shelfNumber, department, sold);
-      journalsList.add(journal);
+        Journal journal = new Journal(name, article, price, shelfNumber, department, sold);
+        journalsList.add(journal);
+        itemsList.add(journal);
     }
 
 
     public void bookSales (int article, int salesManagerNumber){
-        Item i = getItemByArticle(article);
+        Item iTem = getItemByArticle(article);
         SalesManager m = getSalesManagerByNumber (salesManagerNumber);
-        int p = i.price;
-        i.setSold(true);
+        int p = iTem.getPrice();
+        iTem.setSold(true);
         m.setSumOfSales(p);
 
 
@@ -65,10 +71,10 @@ public class BookStore {
 
     public void printSalesManagers () {
 
-        for (int i = 0; i < salesManagersList.size(); i++) {
-            SalesManager m = getSalesManagerByNumber(i);
+        for (int i = 1; i < salesManagersList.size(); i++) {
+            SalesManager m = (SalesManager) salesManagersList.get(i);
             int n = m.getSalesManagerNumber();
-            System.out.println(n+" "+m.firstName+" "+ m.lastName);
+            System.out.println(n+" "+m.getFirstName()+" "+ m.getLastName());
         }
 
     }
@@ -76,7 +82,8 @@ public class BookStore {
     public void printBooks() {
 
         for (int i = 0; i < booksList.size(); i++) {
-            String n = getBookNameByArticle(i);
+            Book b = (Book) booksList.get(i);
+            String n = b.getName();
             System.out.println(n);
         }
     }
@@ -84,7 +91,7 @@ public class BookStore {
     public void printJournals () {
 
         for (int i = 0; i < journalsList.size(); i++) {
-            Journal j = getJournalByArticle(i);
+            Journal j = (Journal) journalsList.get(i);
             String n = j.getName();
             System.out.println(n);
         }
@@ -92,12 +99,12 @@ public class BookStore {
 
 
     public void bestSalesManagerNumber (){
-        SalesManager m0 = getSalesManagerByNumber(0);
+        SalesManager m0 = getSalesManagerByNumber(1);
         int bestSum = m0.getSumOfSales();
         int iBest = 0;
-        for (int i = 1; i < salesManagersList.size(); i++) {
+        for (int i = 0; i < salesManagersList.size(); i++) {
 
-            SalesManager m = getSalesManagerByNumber(i);
+            SalesManager m = (SalesManager) salesManagersList.get(i);//getSalesManagerByNumber(i);
             int sum = m.getSumOfSales();
                 if (sum>bestSum) {
                     bestSum = sum;
@@ -115,9 +122,9 @@ public class BookStore {
     }
 
     public void richestItem () {
-        Item iTem = itemsList(0);
+        Item iTem = itemsList.get(0);
         int p = iTem.getPrice();
-        for (int i = 1; i < itemsList.size(); i++) {
+        for (int i = 1; i <= itemsList.size(); i++) {
             Item iTem1 = getItemByArticle(i);
             int p1 = iTem1.getPrice();
             if (p1 > p) {
@@ -131,7 +138,7 @@ public class BookStore {
 
     public void averageSales () {
         int sum = 0;
-        for (int i = 0; i < salesManagersList.size(); i++) {
+        for (int i = 1; i < salesManagersList.size(); i++) {
             SalesManager m = getSalesManagerByNumber(i);
             int sum1 = m.getSumOfSales();
             sum = sum + sum1;
@@ -145,6 +152,7 @@ public class BookStore {
 
 
     public Item getItemByArticle(int article) {
+
         for (int i = 0; i < itemsList.size(); i++) {
             Item iTem = itemsList.get(i);
             if (article == iTem.getArticle()) {
@@ -157,7 +165,7 @@ public class BookStore {
 
     public Book getBookByArticle(int article){
         for (int i = 0; i < booksList.size(); i++) {
-            Book b = booksList.get(i);
+            Book b = (Book)booksList.get(i);//TOO BAD// FIXME
             if (article==b.getArticle()){
 
                 return  b;
@@ -169,7 +177,7 @@ public class BookStore {
 
     public String getBookNameByArticle(int article){
         for (int i = 0; i < booksList.size(); i++) {
-            Book b = booksList.get(i);
+            Book b = (Book)booksList.get(i);//FIXME
             if (article==b.getArticle()){
                 String n = b.getName();
                 return  n;
@@ -183,7 +191,7 @@ public class BookStore {
 
     public SalesManager getSalesManagerByNumber (int salesManagerNumber){
         for (int i = 0; i < salesManagersList.size(); i++) {
-            SalesManager m = salesManagersList.get(i);
+            SalesManager m = (SalesManager) salesManagersList.get(i);
             if (salesManagerNumber==m.getSalesManagerNumber()){
                 return  m;
             }
@@ -195,7 +203,7 @@ public class BookStore {
 
     public Journal getJournalByArticle(int article) {
         for (int i = 0; i < journalsList.size(); i++) {
-            Journal j = journalsList.get(i);
+            Journal j =(Journal) journalsList.get(i);
             if (article == j.getArticle()) {
 
                 return j;
