@@ -114,6 +114,21 @@ public class BookStore {
 
     }
 
+    public void richestItem () {
+        Item iTem = itemsList(0);
+        int p = iTem.getPrice();
+        for (int i = 1; i < itemsList.size(); i++) {
+            Item iTem1 = getItemByArticle(i);
+            int p1 = iTem1.getPrice();
+            if (p1 > p) {
+             iTem = iTem1;
+            }
+
+
+        }
+        System.out.println(iTem.getArticle() + " " + iTem.getName() + " " + iTem.getPrice());
+    }
+
     public void averageSales () {
         int sum = 0;
         for (int i = 0; i < salesManagersList.size(); i++) {

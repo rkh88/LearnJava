@@ -42,6 +42,8 @@ public class App {
 
         bs1.averageSales();
 
+        bs1.richestItem();
+
 
     }
 }

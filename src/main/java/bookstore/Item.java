@@ -33,5 +33,8 @@ public class Item {
         return article;
     }
 
+    public int getPrice() {
+        return price;
+    }
 }
 
