@@ -9,11 +9,11 @@ public class Desk {
             tokens[i] = " ";
         }
     }
-    
+
     public void printState() {
 
         for (int i = 0; i < tokens.length; i++) {
-            if ((i + 1) % 3 == 0){
+            if ((i + 1) % 3 == 0) {
                 System.out.print(tokens[i]);
                 System.out.println();
                 System.out.println("------");
@@ -28,43 +28,86 @@ public class Desk {
 
 
     public void changeDeskState(int i) {
-        if (i % 2 == 0){
-            tokens[i] = "X";}
-        else {
+        if (i % 2 == 0) {
+            tokens[i] = "X";
+        } else {
             tokens[i] = "O";
         }
     }
 
 
-
     public boolean deskControl(int i) {
         boolean j = true;
         if (tokens[i] != " ") {
-            j=false;
+            j = false;
         }
         return j;
     }
 
-    public int anybodyWonControl(){
+    public int anybodyWonControl() {
 
+        for (int i = 0; i < 7; i=i+3) {
+            if (tokens[i]==tokens[i+1]&tokens[i+1]==tokens[i+2]&tokens[i]=="X") {
+                return 1;
+            } else {
+                if (tokens[i]==tokens[i+1]&tokens[i+1]==tokens[i+2]&tokens[i]=="O")
+                {
+                    return-1;
+                }
 
-        for (int k = 0; k < 9; k=k+3) {
-            if (tokens[k]==tokens[k+1]&tokens[k+1]==tokens[k+2]&tokens[k]=="X"|tokens[k]==tokens[k+3]&tokens[k+3]==tokens[k+6]&tokens[k]=="X"|tokens[k]==tokens[k+4]&tokens[k+4]==tokens[k+8]&tokens[k]=="X"|tokens[k+2]==tokens[k+4]&tokens[k+4]==tokens[k+6]&tokens[k+2]=="X")
-            {
-               return 1;
             }
         }
-        for (int l = 0; l < 9; l=l+3) {
-            if (tokens[l]==tokens[l+1]&tokens[l+1]==tokens[l+2]&tokens[l]=="O"|tokens[l]==tokens[l+3]&tokens[l+3]==tokens[l+6]&tokens[l]=="O"|tokens[l]==tokens[l+4]&tokens[l+4]==tokens[l+8]&tokens[l]=="O"|tokens[l+2]==tokens[l+4]&tokens[l+4]==tokens[l+6]&tokens[l+2]=="O")
-            {
-                return -1;
+
+        for (int i = 0; i < 3; i++) {
+            if (tokens[i]==tokens[i+3]&tokens[i+3]==tokens[i+6]&tokens[i]=="X") {
+                return 1;
+            } else {
+                if (tokens[i]==tokens[i+3]&tokens[i+3]==tokens[i+6]&tokens[i]=="O")
+                {
+                    return-1;
+                }
+
             }
         }
+
+        if (tokens[0]==tokens[4]&tokens[4]==tokens[8]&tokens[0]=="X") {
+            return 1;
+        } else {
+            if (tokens[0]==tokens[4]&tokens[4]==tokens[8]&tokens[0]=="O")
+            {
+                return-1;
+            }
+
+        }
+
+        if (tokens[2]==tokens[4]&tokens[4]==tokens[6]&tokens[2]=="X") {
+            return 1;
+        } else {
+            if (tokens[2]==tokens[4]&tokens[4]==tokens[6]&tokens[2]=="O")
+            {
+                return-1;
+            }
+
+        }
+
         return 0;
+        }
+
+    public int endControl (){
+
+        for (int k = 0; k < 9; k++) {
+            if (tokens[k] == " ") {
+                return 1;
+            }
+        }
+        return -1;
+    }
+
 
 
     }
 
 
 
-}
+
+
