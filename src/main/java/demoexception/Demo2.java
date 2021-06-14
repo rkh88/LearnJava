@@ -1,10 +1,12 @@
 package demoexception;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.List;
 
 public class Demo2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         try {
 
@@ -18,5 +20,16 @@ public class Demo2 {
             ex.printStackTrace();
         }
         System.out.println("!");
+
+        try {
+            readFile();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public  static void readFile() throws FileNotFoundException {
+        FileReader fr = new FileReader("ffff.txt");
     }
 }

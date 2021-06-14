@@ -21,9 +21,8 @@ public class MyArrayList<T> {
             elements1[size++] = c;
             elements = elements1;
         }
-
-
     }
+
     public T get(int index){
         return elements[index];
     }

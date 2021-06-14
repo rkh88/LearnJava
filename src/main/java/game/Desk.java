@@ -104,8 +104,26 @@ public class Desk {
     }
 
 
-
+    public boolean hasWinCombination() {
+        return isVerticalWon() || isHorintalWon() || isDiagonalWon();
     }
+
+    private boolean isHorintalWon() {
+        return true;
+    }
+
+    private boolean isVerticalWon() {
+        return true;
+    }
+
+    private boolean isDiagonalWon() {
+        return true;
+    }
+
+    public boolean setToken(String currentToken, int number) {
+        return true;
+    }
+}
 
 
 

@@ -29,6 +29,17 @@ public class Bank {
        this.director =d;
         System.out.println("Hello from constructor");
     }
+    public Bank(){
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public void addCustomer(String firstName, String lastName) {
         Customer customer = new Customer(idCustomer, firstName, lastName);

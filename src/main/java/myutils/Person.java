@@ -13,6 +13,19 @@ public class Person {
         int x = 5;
         int y = x;
         y = 8;
+        MyLinkedList<String> list = new MyLinkedList<>();
+        list.add("SSS");
+        list.add("SAWE");
+        list.add("RRRR");
+        MyLinkedList.Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+                /*
+                int         Integer
+                boolean       Boolean
+                ...
+                 */
     }
 
     public static void something(Person p){
