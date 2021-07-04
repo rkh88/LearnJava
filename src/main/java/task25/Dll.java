@@ -15,6 +15,40 @@ public class Dll<T> {
 
     private int size = 0;
 
+    public T get(int index){
+        Node<T> tmp = head;
+        int i = 0;
+        while (tmp.next != null &&  i < index){
+            tmp = tmp.next;
+            i++;
+        }
+        return tmp.data;
+    }
+
+   /* public Iterator<T> iterator(){
+        return new Iterator<T>(head);
+    }*/
+
+
+    public static class Iterator<T>{
+
+        private Node<T> cursor;
+
+        public Iterator(Node<T> n) {
+            this.cursor = n;
+        }
+
+        public T next(){
+            T e = cursor.data;
+            cursor = cursor.next;
+            return e;
+        }
+        public boolean hasNext(){
+            return cursor != null;
+        }
+    }
+
+
     public boolean add(T item) {
         if (item == null) {
             return false;
@@ -39,31 +73,31 @@ public class Dll<T> {
     }
 
 
-        public boolean add(int index, T item){
-            if (item == null  ||index < 0 || index > size ) {
-                return false;
-            }else {
-                int i = 0;
-                Node node = new Node();
-                node.data = item;
-                if(head == null){
-                    head = node;
-                } else {
-                    Node temp = head;
-                    while(i != index) {
-                        temp = temp.next;
-                    }
-                    Node temp1 = temp.next;
-
-                    temp.next = node;
-                    node.prev = temp;
-                    node.next = temp1;
-                    temp1.prev = node;
+    public boolean add(int index, T item){
+        if (item == null  ||index < 0 || index > size ) {
+            return false;
+        }else {
+            int i = 0;
+            Node node = new Node();
+            node.data = item;
+            if(head == null){
+                head = node;
+            } else {
+                Node temp = head;
+                while(temp != null && i != index) {
+                    temp = temp.next;
                     i++;
-                    }
+                }
+                Node temp1 = temp.next;
+
+                temp.next = node;
+                node.prev = temp;
+                node.next = temp1;
+                temp1.prev = node;
             }
-            size++;
-            return true;
+        }
+        size++;
+        return true;
     }
 
 
@@ -152,7 +186,7 @@ public class Dll<T> {
             if(head == null){
                 return null;
             } else {
-                Node temp = head;
+                Node<T> temp = head;
                 while(i != index) {
                     temp = temp.next;
                 }
@@ -169,39 +203,6 @@ public class Dll<T> {
 
 
     }
-
-    public T get(int index){
-        Node<T> tmp = head;
-        int i = 0;
-        while (tmp.next != null &&  i < index){
-            tmp = tmp.next;
-        }
-        return tmp.data;
-    }
-
-   /* public Iterator<T> iterator(){
-        return new Iterator<T>(head);
-    }*/
-
-
-    public static class Iterator<T>{
-
-        private Node<T> cursor;
-
-        public Iterator(Node<T> n) {
-            this.cursor = n;
-        }
-
-        public T next(){
-            T e = cursor.data;
-            cursor = cursor.next;
-            return e;
-        }
-        public boolean hasNext(){
-            return cursor != null;
-        }
-    }
-
     public int size(){
         return size;
     }
@@ -210,14 +211,11 @@ public class Dll<T> {
         size = 0;
         head = null;
     }
-
-
-    public boolean isEmpty(){
-        if (size == 0){
+    public boolean isEmpty() {
+        if (size == 0) {
             return true;
-        } else{
+        } else {
             return false;
         }
-
     }
 }
