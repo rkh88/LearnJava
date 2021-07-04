@@ -7,16 +7,19 @@ public class ListQueue<T> {
 
 
     public void enque(T i) {
-
+        listQueue.addLast(i);
     }
 
 
     public T dequeue() {
-        return null;
+
+        listQueue.removeFirst();
+
     }
 
 
     public boolean isEmpty() {
-        return false;
+
+        return listQueue.size() == 0;
     }
 }
