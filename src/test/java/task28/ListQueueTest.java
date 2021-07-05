@@ -1,8 +1,8 @@
 package task28;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class ListQueueTest {
 
@@ -14,7 +14,7 @@ public class ListQueueTest {
         lq1.enque(0);
         lq1.enque(1);
         lq1.enque(2);
-        assertEquals(0, lq1.dequeue());
+        assertEquals(0, (int) lq1.dequeue());
 
     }
 

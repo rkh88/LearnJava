@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 public class DllTest {
 
     @Test
-
     public void testDll() {
             Dll<Integer> ll1 = new Dll<>();
             assertEquals(false, ll1.add((Integer) null));
@@ -23,9 +22,9 @@ public class DllTest {
             assertEquals(2, (int)ll1.get(1));
             assertEquals(3, (int)ll1.get(2));
             assertEquals(true, ll1.add(int4));
-            assertEquals(true, ll1.add(4, int5));
+            assertEquals(false, ll1.add(4, int5));
             assertEquals(4, (int)ll1.get(3));
-            assertEquals(5, (int)ll1.get(4));
+
             
             Dll<Integer> ll2 = new Dll<>();
             int int6 = 6;

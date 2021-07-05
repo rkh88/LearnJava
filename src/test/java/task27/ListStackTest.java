@@ -1,8 +1,8 @@
 package task27;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class ListStackTest {
 
@@ -14,8 +14,14 @@ public class ListStackTest {
         ls1.push(0);
         ls1.push(1);
         ls1.push(2);
-        assertEquals(2, ls1.pop());
+        assertEquals(2, (int)ls1.pop());
         assertEquals(false, ls1.isEmpty());
+
+        assertEquals(1, (int)ls1.pop());
+        assertEquals(false, ls1.isEmpty());
+
+        assertEquals(0, (int)ls1.pop());
+        assertEquals(true, ls1.isEmpty());
 
     }
 

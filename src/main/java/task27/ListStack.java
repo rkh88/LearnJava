@@ -21,4 +21,12 @@ public class ListStack<T> implements Stack<T>{
     public boolean isEmpty() {
         return listStack.size() == 0;
     }
+
+    public T peekLast(){
+        return  listStack.get(listStack.size() - 1);
+    }
+
+
+
+
 }

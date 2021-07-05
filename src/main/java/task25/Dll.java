@@ -74,7 +74,7 @@ public class Dll<T> {
 
 
     public boolean add(int index, T item){
-        if (item == null  ||index < 0 || index > size ) {
+        if (item == null  ||index < 0 || index > size - 1 ) {
             return false;
         }else {
             int i = 0;
@@ -88,12 +88,15 @@ public class Dll<T> {
                     temp = temp.next;
                     i++;
                 }
-                Node temp1 = temp.next;
+
 
                 temp.next = node;
                 node.prev = temp;
-                node.next = temp1;
-                temp1.prev = node;
+                if (temp.next != null) {
+                    Node temp1 = temp.next;
+                    node.next = temp1;
+                    temp1.prev = node;
+                }
             }
         }
         size++;
@@ -178,7 +181,7 @@ public class Dll<T> {
     }
 
     public T removeByIndex(int index){
-        if (index < 0 || index > size){
+        if (index < 0 || index > size - 1){
             return null;
         } else {
             int i = 0;
@@ -186,17 +189,31 @@ public class Dll<T> {
             if(head == null){
                 return null;
             } else {
-                Node<T> temp = head;
-                while(i != index) {
-                    temp = temp.next;
+                if (index == 0){
+                    Node tmp =head;
+                    head = head.next;
+                    size--;
+                    return (T) tmp.data;
+                } else {
+                    Node<T> temp = head;
+                    T  element = null;
+                    while (i < index) {
+                        temp = temp.next;
+                        i++;
+                    }
+                    if (index == size - 1) {
+                        element = temp.data;
+                        temp.prev.next = null;
+                    } else {
+                        Node temp1 = temp.prev;
+                        Node temp2 = temp.next;
+                        temp1.next = temp2;
+                        temp2.prev = temp1;
+                        element = temp.data;
+                    }
+                    size--;
+                    return element;
                 }
-                Node temp1 = temp.prev;
-                Node temp2 = temp.next;
-                temp1.next = temp2;
-                temp2.prev = temp1;
-                size --;
-                return temp.data;
-
             }
 
         }
