@@ -25,5 +25,10 @@ public class AdvancedDll<T> extends Dll<T>{
 
     }
 
+    public T getLast(){
+
+
+    }
+
 
 }

@@ -11,9 +11,7 @@ public class RightMarkSubsequenceTest {
     public void testRMS() {
 
         private String str = 'weyrg(kjdgkdfjg)ksjdf{sdkjf}skldfj]';
-        assertEquals(false, markProcedure(str));
-
-
+        assertEquals(false, str.markProcedure());
 
     }
 }

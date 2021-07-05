@@ -8,7 +8,7 @@ public class ArrayStack<T> implements Stack<T> {
         private int top = -1;
 
         public ArrayStack(int size) {
-                arrayStack = (T[]) new [size];
+                arrayStack = (T[]) new ArrayStack[size];
                 this.size = size;
         }
         @Override

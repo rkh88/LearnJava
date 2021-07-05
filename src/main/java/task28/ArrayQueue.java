@@ -9,8 +9,8 @@ public class ArrayQueue<T> {
     private int nElem = 0;
 
     public ArrayQueue(int size) {
+        arrayQueue = (T[]) new ArrayQueue[size];
         this.size = size;
-        arrayQueue = (T[]) new ArrayQueue<T>()[size];
     }
 
     public void enque(T i) {
@@ -19,7 +19,6 @@ public class ArrayQueue<T> {
             nElem++;
         }
     }
-
 
     public T dequeue() {
         T temp = arrayQueue[head++];

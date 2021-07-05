@@ -13,7 +13,7 @@ public class ListQueue<T> {
 
     public T dequeue() {
 
-        listQueue.removeFirst();
+        return listQueue.removeFirst();
 
     }
 
