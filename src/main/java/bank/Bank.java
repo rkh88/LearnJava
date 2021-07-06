@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  */
 public class Bank {
     String name;
-     String address;
+    String address;
     Director director;
     Employe [] employes = new Employe[5];
     private MyArrayList<Customer> customerList = new MyArrayList();
